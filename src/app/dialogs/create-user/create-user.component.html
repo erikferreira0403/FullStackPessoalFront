@@ -1,0 +1,15 @@
+<mat-form-field appearance="fill" class="form">
+  <mat-label>User *</mat-label>
+  <input matInput [(ngModel)]="users.name" />
+</mat-form-field>
+<br />
+<mat-form-field appearance="fill">
+  <mat-label>Password *</mat-label>
+  <input matInput [(ngModel)]="users.password" />
+  
+</mat-form-field>
+<hr>
+<p *ngIf="disclaimer" class="disclaimer">Todos campos são obrigatórios</p>
+<button mat-raised-button (click)="PostUsers()">Enviar</button>
+
+

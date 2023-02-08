@@ -1,0 +1,25 @@
+<mat-toolbar class="nav mat-elevation-z4"> 
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <a routerLink="/">
+        <mat-icon>person</mat-icon>
+        
+          <span>Usuários</span>
+      </a>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <a routerLink="aboutus">
+          <span>About Us</span>
+      </a>
+      </button>
+    </mat-menu>
+  
+    <a routerLink="/">
+      <span>Projeto</span>
+  </a>
+</mat-toolbar>
