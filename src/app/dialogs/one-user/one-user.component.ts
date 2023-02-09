@@ -29,5 +29,4 @@ export class OneUserComponent implements OnInit {
     this.user.PutUser(this.id, this.users).subscribe(() =>
     window.location.reload())} else {  this.disclaimer = true
     } 
-  }
-}
+  }}

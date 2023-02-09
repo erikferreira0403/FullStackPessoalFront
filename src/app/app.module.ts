@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   
 import { FormsModule } from '@angular/forms';
@@ -24,10 +23,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { OneUserComponent } from './dialogs/one-user/one-user.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-
-
-
-
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -38,6 +34,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     CreateUserComponent,
     OneUserComponent,
     AboutUsComponent,
+    LoginComponent,
 
   ],
   imports: [

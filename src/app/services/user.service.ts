@@ -8,10 +8,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  isLoggedIn: boolean;
+
 
   UsersUrl = 'https://localhost:44318/Users'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  }
 
   GetUser(): Observable<any[]> {
     return this.http.get<any[]>(this.UsersUrl)
@@ -30,5 +34,15 @@ export class UserService {
   PutUser(id: number, data: User): Observable<User>{
     const url = `${this.UsersUrl}/${id}`
     return this.http.put<User>(url, data)
+  }
+  PostLogin( user: User): Observable<User>{
+    const url = "https://localhost:44318/login";
+    return this.http.post<User>(url, user);
+  }
+
+  login() {
+    // mude o valor de isLoggedIn para true e armazene no localStorage
+    this.isLoggedIn = true;
+    localStorage.setItem('isLoggedIn', 'true');
   }
 }

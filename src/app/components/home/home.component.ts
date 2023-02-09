@@ -12,6 +12,8 @@ import { OneUserComponent } from 'src/app/dialogs/one-user/one-user.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit { 
+  isLoggedIn: boolean;
+
   displayedColumns = ['id', 'name', 'password', 'actions'];
   listofusers!: User[];
   id!: number;
@@ -21,9 +23,14 @@ export class HomeComponent implements OnInit {
   password: ''
   };
 
-  constructor(private user : UserService, public dialog: MatDialog) { }
+  constructor(private user : UserService, public dialog: MatDialog) { 
+    this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+  }
 
   ngOnInit(){
+    this.isLoggedIn = this.user.isLoggedIn;
+
     this.user.GetUser().subscribe(r => {
       this.listofusers = r
       console.log(this.listofusers)

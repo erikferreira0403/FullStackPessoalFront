@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn: boolean;
+    
+  constructor(private user: UserService) {
+    this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+   }
 
   ngOnInit(): void {
-  }
+    this.isLoggedIn = this.user.isLoggedIn;
 
+  }
 }
