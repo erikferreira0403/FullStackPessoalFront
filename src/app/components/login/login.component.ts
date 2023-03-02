@@ -40,8 +40,9 @@ export class LoginComponent implements OnInit {
     if(this.users.name != "" && this.users.password != ""){
     this.user.PostLogin(this.users).subscribe(
     (r) => {
-      this.dataToParent.emit({data : true})
+    this.user.login();
     this.router.navigate(['/Home'])
+    window.location.reload();
     
     },
     (e) => {
