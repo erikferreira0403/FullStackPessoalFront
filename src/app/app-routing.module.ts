@@ -1,5 +1,4 @@
 import { LoginComponent } from './components/login/login.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,9 +9,7 @@ const routes: Routes = [
   {path:"Home",
   component: HomeComponent},
   {path:"login",
-  component: LoginComponent},
-  {path:"aboutus",
-  component:AboutUsComponent}
+  component: LoginComponent}
 ];
 
 @NgModule({

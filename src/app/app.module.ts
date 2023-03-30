@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-  
+
 import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -22,8 +22,8 @@ import { CreateUserComponent } from './dialogs/create-user/create-user.component
 import {MatMenuModule} from '@angular/material/menu';
 import { OneUserComponent } from './dialogs/one-user/one-user.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { AboutUsComponent } from './components/about-us/about-us.component';
 import { LoginComponent } from './components/login/login.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -33,7 +33,6 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     CreateUserComponent,
     OneUserComponent,
-    AboutUsComponent,
     LoginComponent,
 
   ],
@@ -52,7 +51,8 @@ import { LoginComponent } from './components/login/login.component';
     MatFormFieldModule,
     MatDialogModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
