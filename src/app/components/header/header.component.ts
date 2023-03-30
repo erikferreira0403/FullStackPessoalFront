@@ -8,17 +8,20 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
+
   isLoggedIn: boolean;
   constructor(private user: UserService) {
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
    }
 
-
   ngOnInit(){
     this.isLoggedIn = this.user.isLoggedIn;
+  }
 
+  lougt(){
+    this.user.logout()
+    window.location.reload();
   }
 
 }

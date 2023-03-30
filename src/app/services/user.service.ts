@@ -13,7 +13,7 @@ export class UserService {
 
   UsersUrl = 'https://localhost:44318/Users'
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   }
 
@@ -44,5 +44,9 @@ export class UserService {
     // mude o valor de isLoggedIn para true e armazene no localStorage
     this.isLoggedIn = true;
     localStorage.setItem('isLoggedIn', 'true');
+  }
+  logout(){
+    this.isLoggedIn = false;
+    localStorage.setItem('isLoggedIn', 'false');
   }
 }
