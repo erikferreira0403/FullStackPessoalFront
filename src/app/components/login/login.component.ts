@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     name: '',
     password: ''
     };
-    
+
   constructor(private user: UserService, private router: Router) {
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
@@ -40,13 +40,13 @@ export class LoginComponent implements OnInit {
     if(this.users.name != "" && this.users.password != ""){
     this.user.PostLogin(this.users).subscribe(
     (r) => {
-    this.user.login();
+    this.user.login(r)
     this.router.navigate(['/Home'])
     window.location.reload();
-    
+
     },
     (e) => {
-      console.log(e), 
+      console.log(e),
       this.check = true
     })
     }

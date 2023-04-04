@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   isLoggedIn: boolean;
+  email!: User;
 
 
   UsersUrl = 'https://localhost:44318/Users'
@@ -40,13 +41,20 @@ export class UserService {
     return this.http.post<User>(url, user);
   }
 
-  login() {
-    // mude o valor de isLoggedIn para true e armazene no localStorage
+  login(user: User) {
     this.isLoggedIn = true;
     localStorage.setItem('isLoggedIn', 'true');
+    this.userEmail(user)
   }
+
   logout(){
     this.isLoggedIn = false;
     localStorage.setItem('isLoggedIn', 'false');
+    localStorage.removeItem('email')
+  }
+
+  userEmail(user: any){
+    localStorage.setItem('email',  user.id)
+    console.log(this.email)
   }
 }

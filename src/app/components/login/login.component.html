@@ -1,19 +1,19 @@
-<div class="container">   
+<div class="container">
 <mat-card class="table-card">
     <mat-form-field appearance="fill" class="form">
-        <mat-label>User *</mat-label>
-        <input matInput [(ngModel)]="users.name" />
+        <mat-label>User</mat-label>
+        <input matInput [(ngModel)]="users.name" required/>
       </mat-form-field>
       <br />
       <mat-form-field appearance="fill">
-        <mat-label>Password *</mat-label>
-        <input matInput [(ngModel)]="users.password" />
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="users.password" required/>
       </mat-form-field>
-      <hr>  
+      <hr>
       <p *ngIf="!check && disclaimer" class="disclaimer">Todos campos são obrigatórios</p>
       <p *ngIf="check" class="check">Esse usuário não existe</p>
 
-    
+
       <button mat-raised-button (click)="LoginUser()" >Login</button>
 </mat-card >
 </div>

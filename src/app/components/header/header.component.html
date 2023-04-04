@@ -6,18 +6,24 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <a routerLink="Home">
-        <mat-icon>person</mat-icon>
+        <mat-icon>people</mat-icon>
           <span>Usuários</span>
       </a>
       </button>
 
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+          <span>Perfil</span>
+      </button>
+
       <button mat-menu-item (click)="lougt()">
         <mat-icon>meeting_room</mat-icon>
-          <span>logout</span>
+          <span>Logout</span>
       </button>
     </mat-menu>
 
     <a routerLink="/">
       <span>Projeto</span>
   </a>
+
 </mat-toolbar>
