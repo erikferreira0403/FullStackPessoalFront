@@ -20,7 +20,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateUserComponent } from './dialogs/create-user/create-user.component';
 import {MatMenuModule} from '@angular/material/menu';
-import { OneUserComponent } from './dialogs/one-user/one-user.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { LoginComponent } from './components/login/login.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -32,7 +31,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HeaderComponent,
     HomeComponent,
     CreateUserComponent,
-    OneUserComponent,
     LoginComponent,
 
   ],

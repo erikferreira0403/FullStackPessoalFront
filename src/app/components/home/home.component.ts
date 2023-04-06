@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from 'src/app/dialogs/create-user/create-user.component';
-import { OneUserComponent } from 'src/app/dialogs/one-user/one-user.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
@@ -15,11 +14,9 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class HomeComponent implements OnInit {
   isLoggedIn: boolean;
-
   displayedColumns = ['id', 'name', 'password', 'actions'];
   listofusers: User[] = [];
   dataSource!: MatTableDataSource<User>;
-
 
   public users : User = {
   name: '',
@@ -42,13 +39,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  openDialogCreate() {
-    const dialogRef = this.dialog.open(CreateUserComponent);
+  openDialogCreate(modo?: string) {
+    const dialogRef = this.dialog.open(CreateUserComponent, {
+      data:  { modo: 'Adicionar' }
+    });
   }
 
   openDialogOneUser(userid?: any) {
-    const dialogRef = this.dialog.open(OneUserComponent, {
-      data: { id : userid }
+    const dialogRef = this.dialog.open(CreateUserComponent, {
+      data: { id : userid, modo: 'Editar'}
     });
   }
 

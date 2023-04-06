@@ -6,11 +6,13 @@
 <br />
 <mat-form-field appearance="fill">
   <mat-label>Password *</mat-label>
-  <input matInput [(ngModel)]="users.password" />
-
+  <input matInput [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="users.password" />
+  <mat-icon matSuffix (click)="togglePasswordVisibility()">
+    {{showPassword?'visibility_off':'visibility'}}
+  </mat-icon>
 </mat-form-field>
 <p *ngIf="disclaimer" class="disclaimer">Todos campos são obrigatórios</p>
 </div>
-<button mat-raised-button (click)="PostUsers()">Enviar</button>
+<button mat-raised-button (click)="Send()">{{data.modo}}</button>
 
 
