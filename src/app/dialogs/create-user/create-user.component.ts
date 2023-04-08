@@ -2,6 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-create-user',
@@ -13,17 +15,19 @@ export class CreateUserComponent  {
   id!: number;
   showPassword: boolean = false;
 
-
   public users : User = {
     name: '',
     password: ''
     };
 
-  constructor(private user : UserService, @Inject(MAT_DIALOG_DATA) public data: {id: number, modo: string}) { }
+  constructor(
+    private user : UserService,
+    @Inject(MAT_DIALOG_DATA) public data: {id: number, modo: string},
+    private dialogRef: MatDialogRef<CreateUserComponent>) { }
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit(): void {
-    if (this.data.modo === 'editar') {
+    if (this.data.modo === 'Editar') {
       this.GetUser();
     }
   }
@@ -31,9 +35,9 @@ export class CreateUserComponent  {
   PostUsers(){
     if(this.users.name != "" && this.users.password != "")
      this.user.PostUser(this.users).subscribe(() => {
-      return window.location.reload();
-    }); else {  this.disclaimer = true
-    }
+      this.dialogRef.close();
+    });
+    else {  this.disclaimer = true }
   }
 
   Send(){
@@ -52,7 +56,8 @@ export class CreateUserComponent  {
     if(this.users.name != "" && this.users.password != ""){
 
     this.user.PutUser(this.data.id, this.users).subscribe(() =>
-    window.location.reload())} else {  this.disclaimer = true
+    this.dialogRef.close()
+    )} else {  this.disclaimer = true
     }
   }
 

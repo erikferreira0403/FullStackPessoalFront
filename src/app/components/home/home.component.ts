@@ -31,7 +31,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
     this.isLoggedIn = this.user.isLoggedIn;
+    this.CreateListOfusers();
+  }
 
+  CreateListOfusers(){
     this.user.GetUser().subscribe(r => {
       this.listofusers = r;
       this.dataSource = new MatTableDataSource<User>(this.listofusers);
@@ -43,11 +46,17 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateUserComponent, {
       data:  { modo: 'Adicionar' }
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.CreateListOfusers();
+    });
   }
 
   openDialogOneUser(userid?: any) {
     const dialogRef = this.dialog.open(CreateUserComponent, {
       data: { id : userid, modo: 'Editar'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.CreateListOfusers();
     });
   }
 
