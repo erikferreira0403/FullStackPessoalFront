@@ -3,7 +3,7 @@
   <mat-label>User *</mat-label>
   <input matInput [(ngModel)]="users.name" />
 </mat-form-field>
-<br />
+
 <mat-form-field appearance="fill">
   <mat-label>Password *</mat-label>
   <input matInput [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="users.password" />
@@ -11,6 +11,16 @@
     {{showPassword?'visibility_off':'visibility'}}
   </mat-icon>
 </mat-form-field>
+
+<div class="roleButton">
+  <p>Set access type *</p>
+  <mat-button-toggle-group [(ngModel)]="users.role" name="role" required>
+    <mat-button-toggle value="0">User</mat-button-toggle>
+    <mat-button-toggle value="1">Admin</mat-button-toggle>
+    <mat-button-toggle value="2">Maintainer</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
 <p *ngIf="disclaimer" class="disclaimer">Todos campos são obrigatórios</p>
 </div>
 <button mat-raised-button (click)="Send()">{{data.modo}}</button>

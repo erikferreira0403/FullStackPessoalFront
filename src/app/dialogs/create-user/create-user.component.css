@@ -1,3 +1,13 @@
 .disclaimer{
     color: red;
 }
+
+.roleButton{
+  margin: 10px 0 10px 0;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  -ms-flex-align: start;
+}

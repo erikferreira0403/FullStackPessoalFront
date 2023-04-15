@@ -14,14 +14,9 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class HomeComponent implements OnInit {
   isLoggedIn: boolean;
-  displayedColumns = ['id', 'name', 'password', 'actions'];
+  displayedColumns = ['id', 'name', 'password', 'role', 'actions'];
   listofusers: User[] = [];
   dataSource!: MatTableDataSource<User>;
-
-  public users : User = {
-  name: '',
-  password: ''
-  };
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 

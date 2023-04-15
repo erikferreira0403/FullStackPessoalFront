@@ -23,6 +23,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 import { LoginComponent } from './components/login/login.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatDialogModule,
     MatMenuModule,
     MatTabsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
