@@ -8,14 +8,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
   isLoggedIn: boolean;
   email: any;
+
   constructor(private user: UserService) {
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     this.email = localStorage.getItem('email')
-
-
    }
 
   ngOnInit(){

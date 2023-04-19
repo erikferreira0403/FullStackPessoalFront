@@ -24,12 +24,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private user: UserService, private router: Router) {
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
    }
 
   ngOnInit(): void {
     this.isLoggedIn = this.user.isLoggedIn;
-
   }
 
   LoginUser(){
