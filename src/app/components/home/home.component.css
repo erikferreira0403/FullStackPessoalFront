@@ -31,3 +31,7 @@
 .icons:nth-child(2) {
   margin-left: 10px; /* adiciona um espaço de 10 pixels à esquerda da segunda div */
 }
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

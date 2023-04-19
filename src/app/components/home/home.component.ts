@@ -12,21 +12,29 @@ import { MatPaginator } from '@angular/material/paginator';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  isLoggedIn: boolean;
+export class HomeComponent implements OnInit{
+  isLoggedIn = this.user.isLoggedIn;
   displayedColumns = ['id', 'name', 'password', 'role', 'actions'];
   listofusers: User[] = [];
   dataSource!: MatTableDataSource<User>;
+  IsMantainer!: boolean;
+  email: any;
+
+  public users : User = {
+    name: '',
+    password: '',
+  }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private user : UserService, public dialog: MatDialog) {
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    this.email = localStorage.getItem('email')
   }
 
   ngOnInit(){
-    this.isLoggedIn = this.user.isLoggedIn;
     this.CreateListOfusers();
+    this.checkRole();
   }
 
   CreateListOfusers(){
@@ -57,6 +65,20 @@ export class HomeComponent implements OnInit {
 
   deleteUser(id:number){
     this.user.DeleteUser(id).subscribe(() => {
-      window.location.reload()});
+      this.CreateListOfusers();})
+  }
+
+  checkRole(){
+    let id = parseInt(this.email);
+    this.user.GetOneUser(id).subscribe((r: any) => {
+        this.users = r
+        console.log(this.users)
+
+        if(r.role == 0){
+          this.IsMantainer = false
+        } else {
+          this.IsMantainer = true
+        }
+    });
   }
 }

@@ -17,7 +17,7 @@
 
         <ng-container matColumnDef="password">
           <th mat-header-cell *matHeaderCellDef> Password </th>
-          <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+          <td mat-cell *matCellDef="let element"> ***** </td>
         </ng-container>
 
         <ng-container matColumnDef="role">
@@ -27,14 +27,14 @@
 
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
-          <td mat-cell *matCellDef="let element" >
-            <a (click)="deleteUser(element.id)" class="icons">
-                <i class="material-icons ">
+          <td mat-cell *matCellDef="let element">
+            <a (click)="deleteUser(element.id)" class="icons" [ngClass]="{'disabled': !IsMantainer}">
+                <i class="material-icons">
                     delete
                 </i>
             </a>
-            <a (click)="openDialogOneUser(element.id)" class="icons">
-                  <i class="material-icons ">
+            <a (click)="openDialogOneUser(element.id)" class="icons" [ngClass]="{'disabled': !IsMantainer}">
+                  <i class="material-icons">
                       edit
                   </i>
             </a>
