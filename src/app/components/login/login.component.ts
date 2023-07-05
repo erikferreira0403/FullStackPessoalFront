@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   @Output() dataToParent = new EventEmitter<any>();
   isLoggedIn: boolean;
 
+  showPassword = false;
 
   disclaimer = false;
   check = false
@@ -48,5 +49,8 @@ export class LoginComponent implements OnInit {
       this.check = true
     })
     }
+  }
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

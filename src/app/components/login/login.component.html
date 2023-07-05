@@ -7,7 +7,10 @@
       <br />
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="users.password" required/>
+        <input matInput [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="users.password" required/>
+        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+          {{showPassword?'visibility_off':'visibility'}}
+        </mat-icon>
       </mat-form-field>
       <hr>
       <p *ngIf="!check && disclaimer" class="disclaimer">Todos campos são obrigatórios</p>
